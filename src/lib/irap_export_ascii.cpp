@@ -30,7 +30,7 @@ void write_values_ascii(surf_span values, std::ostream& out) {
   auto cols = values.extent(1);
   for (size_t j = 0; j < cols; j++) {
     for (size_t i = 0; i < rows; i++) {
-      auto v = values(i, j);
+      auto v = values[i, j];
       out << (std::isnan(v) ? UNDEF_MAP_IRAP_STRING : std::format("{:f}", v));
 
       ++values_on_current_line %= MAX_PER_LINE;
